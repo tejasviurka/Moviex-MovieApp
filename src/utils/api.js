@@ -6,8 +6,7 @@ import axios from "axios" ;
 // create 1 base url
 const BASE_URL = "https://api.themoviedb.org/3";
 // create 1 var for token, save token in this
-const TMDB_TOKEN = import.meta.env.VITE_APP_TMDB_TOKEN;
-
+const TMDB_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODA0MTJmMDVlYTM3NTNhMWQ3MDQ5OGU1ZjY1Y2VkMSIsInN1YiI6IjY1ZmU3ZTk2MjI2YzU2MDE3ZDcwNGMyOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9UcnOT4u8M4II_v8LgijS_LGA2U_ckJFMJg6gEIXWQU"
 // jo ye token hai n usko header mai bhjna hai, jo api call krnege usme header hoge waha ye tokens pass krna hai
 const headers = {
     Authorization: "bearer " + TMDB_TOKEN,
@@ -22,7 +21,7 @@ export const fetchDataFromApi = async (url, params) =>{
         const {data} =await axios.get(BASE_URL +url, {
             headers,
             params
-        })
+        });
         return data;
 
     } catch (err){
@@ -30,4 +29,4 @@ export const fetchDataFromApi = async (url, params) =>{
         return err;
     }
 
-}  
+};
